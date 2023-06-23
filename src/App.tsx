@@ -8,8 +8,8 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/streamers" element={<Streamers />}></Route>
-        <Route path="/" element={<Navigate to="/streamers" replace />} />
         <Route path="/streamer" element={<StreamersDetails />} />
+        <Route path="/*" element={<Navigate to="/streamers" replace />} />
       </Routes>
     </Layout>
   );
