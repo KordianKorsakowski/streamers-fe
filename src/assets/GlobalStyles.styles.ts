@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { colors } from '../theme/colors';
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -9,8 +10,10 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0px;
         padding: 0px;
         font-size: 1.6rem;
+        background-color: ${colors.firstColorBg};
+        color: ${colors.firstColorFont};
     }
-    p {
+    p, h1{
         padding: 0;
         margin: 0;
     }
