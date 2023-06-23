@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 export const Title = styled.h1`
   letter-spacing: 5px;
-  font-weight: 400;
+  font-weight: 100;
   text-transform: uppercase;
   padding: 1rem;
 `;
