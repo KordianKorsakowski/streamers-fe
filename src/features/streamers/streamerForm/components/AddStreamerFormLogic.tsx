@@ -8,7 +8,9 @@ export const AddStreamerFormLogic = () => {
   const { values, isValid, resetForm, setSubmitting } =
     useFormikContext<StreamerModal>();
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    console.log(values);
+  };
 
   return (
     <>
@@ -22,8 +24,9 @@ export const AddStreamerFormLogic = () => {
             style={{
               width: 'auto',
             }}
+            onClick={submitHandler}
           >
-            test
+            Add
           </Button>
         }
       />

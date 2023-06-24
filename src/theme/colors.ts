@@ -2,5 +2,5 @@ export const colors = {
   firstColorBg: '#1d3557',
   secondColorBg: '#fff',
   firstColorFont: '#fff',
-  secondColorFont: '#bde0fe',
+  secondColorFont: '#1d3557',
 } as const;

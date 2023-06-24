@@ -6,4 +6,6 @@ export const DividerStyle = styled.div`
   height: 1px;
   background-color: ${colors.secondColorBg};
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `;
