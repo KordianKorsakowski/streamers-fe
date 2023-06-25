@@ -10,10 +10,15 @@ export const Streamers = () => {
   const [isLoader, setIsLoader] = useState<boolean>(false);
   const { setStreamersList, streamersList } = useStreamers();
   useEffect(() => {
-    getStreamersList().then((res) => {
-      console.log(res);
-      setStreamersList(() => res);
-    });
+    setIsLoader(true);
+    getStreamersList()
+      .then((res) => {
+        console.log(res);
+        setStreamersList(() => res);
+      })
+      .finally(() => {
+        setIsLoader(false);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
