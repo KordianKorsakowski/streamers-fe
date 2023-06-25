@@ -5,4 +5,6 @@ export interface StreamerItemInterface {
   name: string;
   platfromType: PlatfromType;
   description: string;
+  downvotes: number;
+  upvotes: number;
 }

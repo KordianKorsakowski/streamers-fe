@@ -8,7 +8,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/streamers" element={<Streamers />}></Route>
-        <Route path="/streamer" element={<StreamersDetails />} />
+        <Route path="/streamer/:id" element={<StreamersDetails />} />
         <Route path="/*" element={<Navigate to="/streamers" replace />} />
       </Routes>
     </Layout>
