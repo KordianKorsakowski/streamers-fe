@@ -3,31 +3,51 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { StreamerModal } from '../types/types';
 import { AddStreamerFormBody } from './AddStreamerFormBody';
+import { createStreamer } from '../../../../api/streamers/createStremer';
+import { useSnackbar } from '../../../../containers/SnackbarContainer';
+import { SubmitBtn } from '../../../../components/ui/components/SubmitBtn';
+import { useStreamers } from '../../../../containers/StreamersContainer';
 export const AddStreamerFormLogic = () => {
+  const { setSnackbar } = useSnackbar();
+  const { setReloadList } = useStreamers();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { values, isValid, resetForm, setSubmitting } =
+  const { values, isValid, resetForm, dirty } =
     useFormikContext<StreamerModal>();
 
-  const submitHandler = () => {
-    console.log(values);
+  const submitHandler = async () => {
+    if (isValid) {
+      setIsLoading(() => true);
+      await createStreamer(values)
+        .then(() => {
+          setSnackbar({
+            text: 'Success, you added new streames',
+            type: 'success',
+          });
+          setReloadList(() => true);
+        })
+        .catch(() => {
+          setSnackbar({
+            text: 'Opssss... Somthing went wrong',
+            type: 'error',
+          });
+        })
+        .finally(() => {
+          setIsLoading(() => false);
+          resetForm();
+        });
+    }
   };
 
   return (
     <>
       <AddStreamerFormBody
         submitButton={
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            style={{
-              width: 'auto',
-            }}
-            onClick={submitHandler}
-          >
-            Add
-          </Button>
+          <SubmitBtn
+            disabled={!(isValid && dirty)}
+            submitFn={submitHandler}
+            isLoading={isLoading}
+            text={'Create'}
+          />
         }
       />
     </>
