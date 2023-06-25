@@ -5,6 +5,8 @@ export interface StreamerItemInterface {
   name: string;
   platfromType: PlatfromType;
   description: string;
-  downvotes: number;
-  upvotes: number;
+  downvote: number;
+  upvote: number;
 }
+
+export type VoteType = 'upvote' | 'downvote';

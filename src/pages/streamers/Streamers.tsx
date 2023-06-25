@@ -8,12 +8,12 @@ import { Loader } from '../../components/ui/components/Loader';
 
 export const Streamers = () => {
   const [isLoader, setIsLoader] = useState<boolean>(false);
-  const { setStreamersList, streamersList } = useStreamers();
+  const { setStreamersList, streamersList, setReloadList, reloadList } =
+    useStreamers();
   useEffect(() => {
     setIsLoader(true);
     getStreamersList()
       .then((res) => {
-        console.log(res);
         setStreamersList(() => res);
       })
       .finally(() => {
@@ -21,6 +21,18 @@ export const Streamers = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (reloadList) {
+      getStreamersList()
+        .then((res) => {
+          setStreamersList(() => res);
+        })
+        .finally(() => {
+          setReloadList(() => false);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reloadList]);
 
   return (
     <>
