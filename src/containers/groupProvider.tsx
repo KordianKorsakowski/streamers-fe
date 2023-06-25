@@ -1,6 +1,7 @@
 import { SnackbarProvider } from './SnackbarContainer';
+import { StreamersProvider } from './StreamersContainer';
 
-const providers = [SnackbarProvider];
+const providers = [SnackbarProvider, StreamersProvider];
 
 export const ProviderGroup = ({ children }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-shadow

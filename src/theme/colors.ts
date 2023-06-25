@@ -11,3 +11,7 @@ export const iconColors = {
   firstDownIcon: '#ef233c',
   secondDownIcon: '#fff',
 } as const;
+
+export const loderColors = {
+  firstColorLoder: '#fff',
+};

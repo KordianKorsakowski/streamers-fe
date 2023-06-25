@@ -13,10 +13,8 @@ root.render(
   <BrowserRouter>
     <ProviderGroup>
       <CustomizedSnackbars />
-      <React.StrictMode>
-        <GlobalStyles />
-        <App />
-      </React.StrictMode>
+      <GlobalStyles />
+      <App />
     </ProviderGroup>
   </BrowserRouter>
 );
