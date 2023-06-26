@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { getStreamersList } from '../../api/streamers/getStreamersList';
-import Divider from '../../components/ui/components/Divider';
 import { AddStreamerForm } from '../../features/streamers/streamerForm/components/AddStreamerForm';
 import { StreamerList } from '../../features/streamers/streamersList/components/StreamerList';
 import { useStreamers } from '../../containers/StreamersContainer';
@@ -37,7 +36,6 @@ export const Streamers = () => {
   return (
     <>
       <AddStreamerForm />
-      <Divider />
       {isLoader && <Loader size="5rem" />}
       {!isLoader && <StreamerList data={streamersList} />}
     </>

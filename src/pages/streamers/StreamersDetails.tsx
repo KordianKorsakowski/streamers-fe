@@ -3,9 +3,10 @@ import { getStreamer } from '../../api/streamers/getStreamer';
 import { useParams } from 'react-router-dom';
 import { useStreamers } from '../../containers/StreamersContainer';
 import { Loader } from '../../components/ui/components/Loader';
+import { StreamerDetails } from '../../features/streamers/streamerDetails/components/StreamerDetails';
 export const StreamersDetails = () => {
   const { id } = useParams();
-  const { setStreamerData } = useStreamers();
+  const { setStreamerData, streamerData } = useStreamers();
   const [isLoader, setIsLoader] = useState<boolean>(false);
   console.log(id);
   useEffect(() => {
@@ -22,7 +23,7 @@ export const StreamersDetails = () => {
   return (
     <>
       {isLoader && <Loader size="5rem" />}
-      {!isLoader && <div>StreamersDetails</div>}
+      {!isLoader && streamerData && <StreamerDetails data={streamerData} />}
     </>
   );
 };

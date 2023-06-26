@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '../components/header/components/Header';
 import { Footer } from '../components/footer/components/Footer';
-import Divider from '../components/ui/components/Divider';
+import { WrapperLayout } from './LayoutStyles.styles';
 
 type Props = {
   children?: React.ReactNode;
@@ -9,11 +9,10 @@ type Props = {
 
 export const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <WrapperLayout>
       <Header />
       <div>{children}</div>
-      <Divider />
       <Footer />
-    </div>
+    </WrapperLayout>
   );
 };

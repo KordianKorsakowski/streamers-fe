@@ -10,4 +10,5 @@ export interface StreamerModal {
   name: string;
   platfromType: PlatfromType;
   description: string;
+  urlImg?: string;
 }
