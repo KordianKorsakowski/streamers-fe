@@ -2,17 +2,18 @@ import styled from 'styled-components';
 import { colors, iconColors } from '../../../../theme/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const List = styled.ul`
-  list-style: none;
-  min-height: 65vh;
+export const VirtualizeContainer = styled.div`
+  margin: auto;
+  padding: 1rem;
 `;
 
-export const ItemList = styled.li`
+export const ItemList = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  width: 80%;
+  width: 95%;
+  height: 80%;
   border-radius: 5px;
   border: 1px solid ${colors.secondColorBg};
   margin: 1rem;

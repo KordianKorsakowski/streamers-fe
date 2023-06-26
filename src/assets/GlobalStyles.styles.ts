@@ -21,4 +21,21 @@ export const GlobalStyles = createGlobalStyle`
     ul{
         padding-left: 0;
     }
+
+    &::-webkit-scrollbar {
+        overflow: hidden;
+        width: 10px;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        overflow: hidden;
+
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
 `;
