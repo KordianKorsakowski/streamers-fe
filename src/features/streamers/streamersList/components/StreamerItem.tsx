@@ -25,7 +25,6 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
 }) => {
   const { setSnackbar } = useSnackbar();
   const { setReloadList } = useStreamers();
-  const showDetilsPageHandler = () => {};
   const voteHandler = (votetype: VoteType) => {
     voteAction(id, votetype)
       .then(() => {
@@ -39,7 +38,7 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
   return (
     <ItemList>
       <Link href={`/streamer/${id}`}>
-        <ContentContainer onClick={showDetilsPageHandler}>
+        <ContentContainer>
           <Cell size={cellSize.medium}>{name}</Cell>
           <Cell size={cellSize.large}>{description}</Cell>
           <Cell size={cellSize.small}>{platfromType}</Cell>

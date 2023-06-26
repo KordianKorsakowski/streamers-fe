@@ -6,12 +6,15 @@ const StreamersContainer = () => {
   const [streamersList, setStreamersList] = useState<StreamerItemInterface[]>(
     []
   );
+  const [streamerData, setStreamerData] = useState<StreamerItemInterface>();
   const [reloadList, setReloadList] = useState<boolean>(false);
   return {
     streamersList,
     setStreamersList,
     setReloadList,
     reloadList,
+    setStreamerData,
+    streamerData,
   };
 };
 
