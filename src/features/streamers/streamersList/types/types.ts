@@ -7,6 +7,7 @@ export interface StreamerItemInterface {
   description: string;
   downvote: number;
   upvote: number;
+  urlImg?: string;
 }
 
 export type VoteType = 'upvote' | 'downvote';
