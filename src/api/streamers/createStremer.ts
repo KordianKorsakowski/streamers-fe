@@ -7,13 +7,8 @@ export const createStreamer = async (payload: StreamerModal) => {
       `http://localhost:5000/streamers`,
       payload
     );
-    if (response.status === 201) {
-      return response.data;
-    } else {
-      throw new Error('error');
-    }
+    return response.data;
   } catch (error) {
-    console.log(error);
-    return [];
+    throw new Error('error');
   }
 };

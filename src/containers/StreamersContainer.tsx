@@ -8,6 +8,7 @@ const StreamersContainer = () => {
   );
   const [streamerData, setStreamerData] = useState<StreamerItemInterface>();
   const [reloadList, setReloadList] = useState<boolean>(false);
+  const [isOpenForm, setIsOpenForm] = useState<boolean>(false);
   return {
     streamersList,
     setStreamersList,
@@ -15,6 +16,8 @@ const StreamersContainer = () => {
     reloadList,
     setStreamerData,
     streamerData,
+    setIsOpenForm,
+    isOpenForm,
   };
 };
 

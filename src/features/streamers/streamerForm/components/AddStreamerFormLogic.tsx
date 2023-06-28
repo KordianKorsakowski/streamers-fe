@@ -9,7 +9,7 @@ import { SubmitBtn } from '../../../../components/ui/components/SubmitBtn';
 import { useStreamers } from '../../../../containers/StreamersContainer';
 export const AddStreamerFormLogic = () => {
   const { setSnackbar } = useSnackbar();
-  const { setReloadList } = useStreamers();
+  const { setReloadList, setIsOpenForm } = useStreamers();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { values, isValid, resetForm, dirty } =
     useFormikContext<StreamerModal>();
@@ -24,6 +24,7 @@ export const AddStreamerFormLogic = () => {
             type: 'success',
           });
           setReloadList(() => true);
+          setIsOpenForm(false);
         })
         .catch(() => {
           setSnackbar({

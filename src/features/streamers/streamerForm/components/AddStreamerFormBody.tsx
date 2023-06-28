@@ -9,27 +9,28 @@ import {
 } from '../style/AddStreamerStyles.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { useStreamers } from '../../../../containers/StreamersContainer';
 
 interface Props {
   submitButton: JSX.Element;
 }
 
 export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isOpenForm, setIsOpenForm } = useStreamers();
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useFormikContext<StreamerModal>();
 
   return (
     <ContainerForm>
-      <CollapseStyle onClick={() => setIsOpen(!isOpen)}>
+      <CollapseStyle onClick={() => setIsOpenForm(!isOpenForm)}>
         <p style={{ fontWeight: '400' }}>Add stremer</p>
-        {!isOpen && <FontAwesomeIcon icon={faArrowDown} />}
-        {isOpen && <FontAwesomeIcon icon={faArrowUp} />}
+        {!isOpenForm && <FontAwesomeIcon icon={faArrowDown} />}
+        {isOpenForm && <FontAwesomeIcon icon={faArrowUp} />}
       </CollapseStyle>
-      {isOpen && (
+      {isOpenForm && (
         <form noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={3}>
               <TextField
                 name="name"
                 label={`Streamer's name`}
@@ -42,7 +43,7 @@ export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
                 required
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={1}>
               <TextField
                 select
                 name="platfromType"
@@ -64,7 +65,7 @@ export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
                 )}
               </TextField>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={8}>
               <TextField
                 type="string"
                 name="description"
