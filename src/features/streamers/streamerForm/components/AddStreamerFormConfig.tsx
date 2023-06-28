@@ -11,7 +11,7 @@ type Props = PropsWithChildren<{
 export const AddStreamerFormConfig = (props: Props) => {
   const { children, initialValues } = props;
   const validation = Yup.object().shape({
-    name: Yup.string().max(50).trim().required('Name is requierd'),
+    name: Yup.string().max(30).trim().required('Name is requierd'),
     platfromType: Yup.string().max(10).trim().required('Platfrom is requierd'),
     description: Yup.string()
       .max(255)
