@@ -15,7 +15,7 @@ export const StreamerList: React.FC<{ data: StreamerItemInterface[] }> = ({
               width={width}
               height={height}
               rowCount={data.length}
-              rowHeight={60}
+              rowHeight={45}
               rowRenderer={({ key, index, style }) => {
                 const streamer = data[index];
                 return (

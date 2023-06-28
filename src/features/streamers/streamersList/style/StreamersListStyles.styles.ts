@@ -25,7 +25,6 @@ export const ContentContainer = styled.div`
   display: flex;
   gap: 1rem;
   width: 100%;
-  height: 100%;
   padding: 1rem;
   cursor: pointer;
   transition: all 0.3s;

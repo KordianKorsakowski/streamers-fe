@@ -7,7 +7,6 @@ export const WrapperStreamer = styled.div`
   align-items: flex-start;
   width: max-content;
   margin: auto;
-  transform: translateY(-20rem);
 `;
 
 export const WrapperInfo = styled.div`
