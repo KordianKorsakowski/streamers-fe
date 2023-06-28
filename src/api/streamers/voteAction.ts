@@ -6,13 +6,9 @@ export const voteAction = async (id: number, voteType: VoteType) => {
     const response = await axios.put(
       `http://localhost:5000/streamers/${id}?vote=${voteType}`
     );
-    if (response.status === 201) {
-      return response.data;
-    } else {
-      throw new Error('error');
-    }
+    console.log(response);
+    return response.data;
   } catch (error) {
-    console.log(error);
-    return [];
+    throw new Error('error');
   }
 };
