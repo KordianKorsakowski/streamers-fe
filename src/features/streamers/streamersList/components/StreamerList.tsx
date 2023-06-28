@@ -7,7 +7,7 @@ export const StreamerList: React.FC<{ data: StreamerItemInterface[] }> = ({
   data,
 }) => {
   return (
-    <VirtualizeContainer style={{ width: '80vw', height: '55vh' }}>
+    <VirtualizeContainer>
       <AutoSizer>
         {({ width, height }) => {
           return (

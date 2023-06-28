@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from '../theme/colors';
+import { device } from '../theme/breakpoints';
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -12,6 +13,9 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1.6rem;
         background-color: ${colors.firstColorBg};
         color: ${colors.firstColorFont};
+        @media ${device.mobileL} {
+            font-size: 1.2rem;
+        }
     }
     p, h1{
         padding: 0;

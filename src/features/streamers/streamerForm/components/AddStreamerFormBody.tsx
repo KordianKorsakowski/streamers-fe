@@ -28,9 +28,9 @@ export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
         {isOpenForm && <FontAwesomeIcon icon={faArrowUp} />}
       </CollapseStyle>
       {isOpenForm && (
-        <form noValidate onSubmit={handleSubmit}>
+        <form noValidate onSubmit={handleSubmit} style={{ marginTop: '1rem' }}>
           <Grid container spacing={2}>
-            <Grid item xs={3}>
+            <Grid item xs={8}>
               <TextField
                 name="name"
                 label={`Streamer's name`}
@@ -43,7 +43,7 @@ export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
                 required
               />
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={4}>
               <TextField
                 select
                 name="platfromType"
@@ -65,7 +65,7 @@ export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
                 )}
               </TextField>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={12}>
               <TextField
                 type="string"
                 name="description"

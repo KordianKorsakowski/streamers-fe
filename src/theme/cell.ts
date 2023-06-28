@@ -1,5 +1,5 @@
 export const cellSize = {
-  small: '10rem',
-  medium: '20rem',
-  large: '60rem',
+  small: '30%',
+  medium: '30%',
+  large: '40%',
 } as const;

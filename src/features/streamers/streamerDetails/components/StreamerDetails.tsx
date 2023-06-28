@@ -19,7 +19,15 @@ export const StreamerDetails: React.FC<Props> = ({ data }) => {
   return (
     <WrapperStreamer>
       <ImageWrapper>
-        <LazyLoadImage src={urlImg} alt="Streamer photo" />
+        <LazyLoadImage
+          src={urlImg}
+          alt="Streamer photo"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+          }}
+        />
       </ImageWrapper>
       <WrapperInfo>
         <WrapperHeader>

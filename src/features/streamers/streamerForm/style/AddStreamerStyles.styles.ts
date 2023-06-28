@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { colors } from '../../../../theme/colors';
+import { device } from '../../../../theme/breakpoints';
 
 export const ContainerForm = styled.div`
   background-color: #fff;
-  width: 80%;
+  width: 95%;
   margin: auto;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 `;
 
 export const CollapseStyle = styled.div`

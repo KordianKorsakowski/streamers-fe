@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { colors, iconColors } from '../../../../theme/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { device } from '../../../../theme/breakpoints';
 
 export const VirtualizeContainer = styled.div`
   margin: auto;
   padding: 1rem;
+  width: 95%;
+  height: 40vh;
 `;
 
 export const ItemList = styled.div`
@@ -24,9 +27,10 @@ export const ItemList = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   gap: 1rem;
-  width: 100%;
+  flex-grow: 1;
   padding: 1rem;
   cursor: pointer;
+  width: 95rem;
   transition: all 0.3s;
   &:hover {
     color: ${colors.secondColorFont};
@@ -36,6 +40,27 @@ export const ContentContainer = styled.div`
       rgba(143, 229, 246, 1) 74%,
       rgba(29, 53, 87, 1) 97%
     );
+  }
+  @media ${device.laptopL} {
+    width: 65rem;
+  }
+  @media ${device.tablet} {
+    width: 40rem;
+  }
+  @media ${device.tablet} {
+    width: 30rem;
+  }
+  @media ${device.mobileL} {
+    width: 25rem;
+  }
+  @media ${device.mobileM} {
+    width: 20rem;
+  }
+  @media ${device.mobileM} {
+    width: 20rem;
+  }
+  @media ${device.mobileS} {
+    width: 15rem;
   }
 `;
 export const Cell = styled.div<{ size: string }>`
