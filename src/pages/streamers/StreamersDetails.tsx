@@ -16,7 +16,6 @@ export const StreamersDetails = () => {
     setIsLoader(true);
     getStreamer(Number(id))
       .then((res) => {
-        console.log(res);
         setStreamerData(() => res);
       })
       .catch(() => {
