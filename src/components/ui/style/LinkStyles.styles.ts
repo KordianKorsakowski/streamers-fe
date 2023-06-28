@@ -6,4 +6,6 @@ export const LinkStyle = styled(Link)`
   color: ${colors.firstColorFont};
   text-decoration: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
