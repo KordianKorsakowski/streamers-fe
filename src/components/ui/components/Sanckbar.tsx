@@ -15,7 +15,11 @@ export const CustomizedSnackbars = () => {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
       <Snackbar open={isOpen} autoHideDuration={6000} onClose={onClose}>
-        <Alert onClose={onClose} severity={info?.type} sx={{ width: '100%' }}>
+        <Alert
+          onClose={onClose}
+          severity={info?.type}
+          sx={{ width: '100%', fontSize: '1.4rem' }}
+        >
           {info?.text}
         </Alert>
       </Snackbar>
