@@ -31,7 +31,8 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
         setSnackbar({ text: 'Your votes count!', type: 'success' });
         setReloadList(() => true);
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         setSnackbar({ text: 'Upss....', type: 'error' });
       });
   };
