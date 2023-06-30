@@ -3,27 +3,27 @@ Currently used and tested, stable Nodejs version - 16.15.1
 Stack - Typescript, React.js, React-Query, React-Router, Unstated-Next, Formik, Yup, Axios, React Testing Library, Jest, Material UI, styled-components
 
 ### BACKEND-info
-    To ensure the proper functioning of the frontend part of the application, a backend is required. Please use the following link: ## [LINK](https://github.com/KordianKorsakowski/stremers-be) to access that portion of the application. All the configuration information can be found in the readme file.
-## General Info 
+To ensure the proper functioning of the frontend part of the application, a backend is required. Please use the following link: ## [LINK](https://github.com/KordianKorsakowski/stremers-be) to access that portion of the application. All the configuration information can be found in the readme file.
+### General Info 
 
 An application that combines multiple elements within two pages:
 
 Page "/streamers":
 
-    Form: 
-    Allows adding a streamer to the list.   
-    List: 
-    Displays a list of streamers existing in the database.
-    Allows liking and unliking a selected streamer.
-    By clicking on the streamer's name in the list, you can navigate to a second page with details about that streamer.
-    The list is ordered by popularity, with the most popular streamer at the top.
+Form: 
+Allows adding a streamer to the list.   
+List: 
+Displays a list of streamers existing in the database.
+Allows liking and unliking a selected streamer.
+By clicking on the streamer's name in the list, you can navigate to a second page with details about that streamer.
+The list is ordered by popularity, with the most popular streamer at the top.
 
 Page "/streamer/:id":
 
-    Details: 
-    Allows displaying information about the streamer, such as their photo, description, streamer name, and the platform they use.
+Details: 
+Allows displaying information about the streamer, such as their photo, description, streamer name, and the platform they use.
 
-## Setup
+### Setup
 
 I would like to present a front-end project built using React.js with TypeScript. This project has been carefully developed to achieve excellent code quality and adhere to best programming practices.
 
