@@ -3,7 +3,7 @@ Currently used and tested, stable Nodejs version - 16.15.1
 Stack - Typescript, React.js, React-Query, React-Router, Unstated-Next, Formik, Yup, Axios, React Testing Library, Jest, Material UI, styled-components
 
 ### BACKEND-info
-To ensure the proper functioning of the frontend part of the application, a backend is required. Please use the following link: ## [LINK](https://github.com/KordianKorsakowski/stremers-be) to access that portion of the application. All the configuration information can be found in the readme file.
+To ensure the proper functioning of the frontend part of the application, a backend is required. Please use the following link: [LINK](https://github.com/KordianKorsakowski/stremers-be) to access that portion of the application. All the configuration information can be found in the readme file.
 ### General Info 
 
 An application that combines multiple elements within two pages:
