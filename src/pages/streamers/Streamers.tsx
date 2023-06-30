@@ -49,10 +49,16 @@ export const Streamers = () => {
 
   return (
     <>
-      {isEmptyStreamerList && <InfoText text="Please add new streamer." />}
-      <AddStreamerForm />
       {isLoader && <Loader size="5rem" />}
-      {!isLoader && <StreamerList data={streamersList} />}
+      {!isLoader && (
+        <>
+          <AddStreamerForm />
+          {isEmptyStreamerList && (
+            <InfoText text="Please add a streamer to see your list" />
+          )}
+          <StreamerList data={streamersList} />
+        </>
+      )}
     </>
   );
 };
