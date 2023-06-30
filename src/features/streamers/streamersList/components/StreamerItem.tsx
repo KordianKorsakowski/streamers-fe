@@ -1,3 +1,4 @@
+import { useDebouncedCallback } from 'use-debounce';
 import { voteAction } from '../../../../api/streamers/voteAction';
 import { Link } from '../../../../components/ui/components/Link';
 import { useSnackbar } from '../../../../containers/SnackbarContainer';
@@ -36,6 +37,10 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
         setSnackbar({ text: 'Upss....', type: 'error' });
       });
   };
+  const debouncedVote = useDebouncedCallback((value) => {
+    voteHandler(value);
+  }, 500);
+
   return (
     <ItemList>
       <Link href={`/streamer/${id}`}>
@@ -55,7 +60,7 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
                 : iconColors.zeroVoteIconColor
             }
             icon={faThumbsUp}
-            onClick={() => voteHandler('upvote')}
+            onClick={() => debouncedVote('upvote')}
           />
         </VotesContainer>
         <VotesContainer>
@@ -67,7 +72,7 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
                 : iconColors.zeroVoteIconColor
             }
             icon={faThumbsDown}
-            onClick={() => voteHandler('downvote')}
+            onClick={() => debouncedVote('downvote')}
           />
         </VotesContainer>
       </ActionsContainer>
