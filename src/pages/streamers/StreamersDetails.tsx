@@ -18,10 +18,10 @@ export const StreamersDetails = () => {
       .then((res) => {
         setStreamerData(() => res);
       })
-      .catch(() => {
+      .catch((e) => {
         setShowMessage(true);
         setSnackbar({
-          text: `Opssss... Streamer not found`,
+          text: e.response.data.message,
           type: 'error',
         });
       })

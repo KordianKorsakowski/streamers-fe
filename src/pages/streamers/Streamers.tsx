@@ -18,9 +18,9 @@ export const Streamers = () => {
       .then((res) => {
         setStreamersList(() => res);
       })
-      .catch(() => {
+      .catch((e) => {
         setSnackbar({
-          text: 'Opssss... Somthing went wrong',
+          text: e.response.data.message,
           type: 'error',
         });
       })

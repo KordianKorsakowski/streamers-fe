@@ -34,7 +34,7 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
       })
       .catch((e) => {
         console.log(e);
-        setSnackbar({ text: 'Upss....', type: 'error' });
+        setSnackbar({ text: e.response.data.message, type: 'error' });
       });
   };
   const debouncedVote = useDebouncedCallback((value) => {

@@ -26,9 +26,9 @@ export const AddStreamerFormLogic = () => {
           setReloadList(() => true);
           setIsOpenForm(false);
         })
-        .catch(() => {
+        .catch((e) => {
           setSnackbar({
-            text: 'Opssss... Somthing went wrong',
+            text: e.response.data.message,
             type: 'error',
           });
         })
