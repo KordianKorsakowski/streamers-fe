@@ -9,8 +9,13 @@ import { InfoText } from '../../components/ui/components/InfoText';
 
 export const Streamers = () => {
   const [isLoader, setIsLoader] = useState<boolean>(false);
-  const { setStreamersList, streamersList, setReloadList, reloadList } =
-    useStreamers();
+  const {
+    setStreamersList,
+    streamersList,
+    setReloadList,
+    reloadList,
+    isEmptyStreamerList,
+  } = useStreamers();
   const { setSnackbar } = useSnackbar();
   useEffect(() => {
     setIsLoader(true);
@@ -20,7 +25,7 @@ export const Streamers = () => {
       })
       .catch((e) => {
         setSnackbar({
-          text: e.response.data.message,
+          text: e.response?.data.message || 'Unhandled error',
           type: 'error',
         });
       })
@@ -44,7 +49,7 @@ export const Streamers = () => {
 
   return (
     <>
-      {!streamersList.length && <InfoText text="Please add new streamer." />}
+      {isEmptyStreamerList && <InfoText text="Please add new streamer." />}
       <AddStreamerForm />
       {isLoader && <Loader size="5rem" />}
       {!isLoader && <StreamerList data={streamersList} />}

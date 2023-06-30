@@ -4,10 +4,14 @@ import { device } from '../../../../theme/breakpoints';
 
 export const ContainerForm = styled.div`
   background-color: #fff;
-  width: 95%;
+  width: 60%;
   margin: auto;
   padding: 0.5rem;
+  margin-bottom: 10px;
   border-radius: 5px;
+  @media ${device.tablet} {
+    width: 95%;
+  }
 `;
 
 export const CollapseStyle = styled.div`

@@ -16,14 +16,16 @@ interface Props {
 }
 
 export const AddStreamerFormBody: React.FC<Props> = ({ submitButton }) => {
-  const { isOpenForm, setIsOpenForm } = useStreamers();
+  const { isOpenForm, setIsOpenForm, isEmptyStreamerList } = useStreamers();
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useFormikContext<StreamerModal>();
 
   return (
     <ContainerForm>
       <CollapseStyle onClick={() => setIsOpenForm(!isOpenForm)}>
-        <p style={{ fontWeight: '400' }}>Add stremer</p>
+        <p style={{ fontWeight: '400' }}>
+          {isEmptyStreamerList ? 'Click to add first streamer' : 'Add streamer'}
+        </p>
         {!isOpenForm && <FontAwesomeIcon icon={faArrowDown} />}
         {isOpenForm && <FontAwesomeIcon icon={faArrowUp} />}
       </CollapseStyle>

@@ -21,7 +21,7 @@ export const StreamersDetails = () => {
       .catch((e) => {
         setShowMessage(true);
         setSnackbar({
-          text: e.response.data.message,
+          text: e.response?.data.message || 'Unhandled error',
           type: 'error',
         });
       })

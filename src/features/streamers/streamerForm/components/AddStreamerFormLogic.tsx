@@ -28,7 +28,7 @@ export const AddStreamerFormLogic = () => {
         })
         .catch((e) => {
           setSnackbar({
-            text: e.response.data.message,
+            text: e.response?.data.message || 'Unhandled error',
             type: 'error',
           });
         })
@@ -47,7 +47,7 @@ export const AddStreamerFormLogic = () => {
             disabled={!(isValid && dirty)}
             submitFn={submitHandler}
             isLoading={isLoading}
-            text={'Create'}
+            text={'Add new streamer'}
           />
         }
       />
