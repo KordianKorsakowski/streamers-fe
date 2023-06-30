@@ -1,6 +1,6 @@
 import { TextField, Grid, MenuItem } from '@mui/material';
 import { useFormikContext } from 'formik';
-import React, { useState } from 'react';
+import React from 'react';
 import { PLATFORM_OPTIONS } from '../constants/constants';
 import { StreamerModal } from '../types/types';
 import {

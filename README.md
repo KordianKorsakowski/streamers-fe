@@ -64,7 +64,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Build
 
 ```cmd
-streamers-fe> npm build
+streamers-fe> npm run build
 ```
 ## Test
 
@@ -75,9 +75,9 @@ streamers-fe> npm test
 ## Eslint
 Fix problem with prettier:
 ```cmd
-streamers-fe> npm lint-fix
+streamers-fe> npm run lint-fix
 ```
 Check prettier:
 ```cmd
-streamers-fe> npm lint-check
+streamers-fe> npm run lint-check
 ```
