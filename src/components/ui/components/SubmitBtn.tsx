@@ -3,7 +3,7 @@ import { Loader } from './Loader';
 
 interface SubmitBtnProps {
   disabled: boolean;
-  submitFn: () => Promise<void>;
+  submitFn: () => void;
   isLoading: boolean;
   text: string;
 }

@@ -7,6 +7,7 @@ import { createStreamer } from '../../../../api/streamers/createStremer';
 import { useSnackbar } from '../../../../containers/SnackbarContainer';
 import { SubmitBtn } from '../../../../components/ui/components/SubmitBtn';
 import { useStreamers } from '../../../../containers/StreamersContainer';
+import { wait } from '../../../../utils/wait';
 export const AddStreamerFormLogic = () => {
   const { setSnackbar } = useSnackbar();
   const { setReloadList, setIsOpenForm } = useStreamers();
@@ -14,10 +15,10 @@ export const AddStreamerFormLogic = () => {
   const { values, isValid, resetForm, dirty } =
     useFormikContext<StreamerModal>();
 
-  const submitHandler = async () => {
+  const submitHandler = () => {
     if (isValid) {
       setIsLoading(() => true);
-      await createStreamer(values)
+      createStreamer(values)
         .then(() => {
           setSnackbar({
             text: 'Success, you added new streames',
