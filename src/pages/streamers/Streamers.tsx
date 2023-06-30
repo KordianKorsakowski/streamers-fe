@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getStreamersList } from '../../api/streamers/getStreamersList';
 import { AddStreamerForm } from '../../features/streamers/streamerForm/components/AddStreamerForm';
 import { StreamerList } from '../../features/streamers/streamersList/components/StreamerList';
 import { useStreamers } from '../../containers/StreamersContainer';
 import { Loader } from '../../components/ui/components/Loader';
-import { useSnackbar } from '../../containers/SnackbarContainer';
 import { InfoText } from '../../components/ui/components/InfoText';
-
+import { useQuery } from '@tanstack/react-query';
 export const Streamers = () => {
-  const [isLoader, setIsLoader] = useState<boolean>(false);
   const {
     setStreamersList,
     streamersList,
@@ -16,45 +14,36 @@ export const Streamers = () => {
     reloadList,
     isEmptyStreamerList,
   } = useStreamers();
-  const { setSnackbar } = useSnackbar();
-  useEffect(() => {
-    setIsLoader(true);
-    getStreamersList()
-      .then((res) => {
-        setStreamersList(() => res);
-      })
-      .catch((e) => {
-        setSnackbar({
-          text: e.response?.data.message || 'Unhandled error',
-          type: 'error',
-        });
-      })
-      .finally(() => {
-        setIsLoader(false);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { data, isLoading, refetch, isError } = useQuery({
+    queryKey: ['streamers'],
+    queryFn: getStreamersList,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    refetchInterval: 1000 * 60,
+  });
+  if (data) {
+    setStreamersList(() => data);
+  }
+
   useEffect(() => {
     if (reloadList) {
-      getStreamersList()
-        .then((res) => {
-          setStreamersList(() => res);
-        })
-        .finally(() => {
-          setReloadList(() => false);
-        });
+      refetch();
+      setReloadList(() => false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reloadList]);
 
   return (
     <>
-      {isLoader && <Loader size="5rem" />}
-      {!isLoader && (
+      {isLoading && <Loader size="5rem" />}
+      {!isLoading && (
         <>
           <AddStreamerForm />
-          {isEmptyStreamerList && (
+          {isEmptyStreamerList && !isError && (
             <InfoText text="Please add a streamer to see your list" />
+          )}
+          {isError && (
+            <InfoText text="Please contact your administrator, There was an error connecting to the database." />
           )}
           <StreamerList data={streamersList} />
         </>
