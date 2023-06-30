@@ -80,21 +80,12 @@ export const VotesContainer = styled.div`
   gap: 1rem;
 `;
 
-export const ThumbsUpIcon = styled(FontAwesomeIcon)`
+export const ThumbsIcon = styled(FontAwesomeIcon)<{ color: string }>`
   cursor: pointer;
-  color: ${iconColors.firstUpIcon};
+  color: ${(props) => props.color};
   transition: all 0.3s;
   &:hover {
     color: ${iconColors.secondUpIcon};
-    transform: scale(1.2);
-  }
-`;
-export const ThumbsDownIcon = styled(FontAwesomeIcon)`
-  cursor: pointer;
-  color: ${iconColors.firstDownIcon};
-  transition: all 0.3s;
-  &:hover {
-    color: ${iconColors.secondDownIcon};
     transform: scale(1.2);
   }
 `;

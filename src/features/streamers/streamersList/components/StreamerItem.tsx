@@ -3,13 +3,13 @@ import { Link } from '../../../../components/ui/components/Link';
 import { useSnackbar } from '../../../../containers/SnackbarContainer';
 import { useStreamers } from '../../../../containers/StreamersContainer';
 import { cellSize } from '../../../../theme/cell';
+import { iconColors } from '../../../../theme/colors';
 import {
   ActionsContainer,
   Cell,
   ContentContainer,
   ItemList,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
+  ThumbsIcon,
   VotesContainer,
 } from '../style/StreamersListStyles.styles';
 import { StreamerItemInterface, VoteType } from '../types/types';
@@ -48,14 +48,24 @@ export const StreamerItem: React.FC<StreamerItemInterface> = ({
       <ActionsContainer>
         <VotesContainer>
           <p>{upvote}</p>
-          <ThumbsUpIcon
+          <ThumbsIcon
+            color={
+              Boolean(upvote)
+                ? iconColors.firstUpIcon
+                : iconColors.zeroVoteIconColor
+            }
             icon={faThumbsUp}
             onClick={() => voteHandler('upvote')}
           />
         </VotesContainer>
         <VotesContainer>
           <p>{downvote}</p>
-          <ThumbsDownIcon
+          <ThumbsIcon
+            color={
+              Boolean(downvote)
+                ? iconColors.firstDownIcon
+                : iconColors.zeroVoteIconColor
+            }
             icon={faThumbsDown}
             onClick={() => voteHandler('downvote')}
           />

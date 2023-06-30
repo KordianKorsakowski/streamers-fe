@@ -10,6 +10,7 @@ export const iconColors = {
   secondUpIcon: '#fff',
   firstDownIcon: '#ef233c',
   secondDownIcon: '#fff',
+  zeroVoteIconColor: '#ced4da',
 } as const;
 
 export const loderColors = {
