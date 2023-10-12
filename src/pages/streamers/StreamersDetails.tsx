@@ -6,6 +6,9 @@ import { Loader } from '../../components/ui/components/Loader';
 import { StreamerDetails } from '../../features/streamers/streamerDetails/components/StreamerDetails';
 import { useSnackbar } from '../../containers/SnackbarContainer';
 import { InfoText } from '../../components/ui/components/InfoText';
+import { StreamsList } from '../../features/streams/listStream/StreamsList';
+import { Streams } from '../../features/streams/fakeDate';
+import { AddStreamForm } from '../../features/streams/formCreateStream/components/AddStreamForm';
 export const StreamersDetails = () => {
   const { id } = useParams();
   const { setStreamerData, streamerData } = useStreamers();
@@ -35,6 +38,8 @@ export const StreamersDetails = () => {
       {showMessage && <InfoText text="Back to home page, streamer not found" />}
       {isLoader && <Loader size="5rem" />}
       {!isLoader && streamerData && <StreamerDetails data={streamerData} />}
+      <AddStreamForm />
+      <StreamsList streams={Streams} />
     </>
   );
 };
